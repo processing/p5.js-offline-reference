@@ -20,7 +20,9 @@ try{
 	const archive = archiver("zip", {
 		zlib: { level: 9 }
 	});
-	archive.on("error", (err) => throw err);
+	archive.on("error", (err) => {
+		throw err
+	});
 	archive.pipe(output);
 	archive.directory("src/", false);
 	archive.finalize();
